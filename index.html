@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trading Performance Dashboard</title>
+  <meta name="description" content="Professional static trading dashboard for GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container hero">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">📈</div>
+        <div>
+          <div>Trading Performance Dashboard</div>
+          <div class="table-sub">Static HTML dashboard ready for GitHub Pages</div>
+        </div>
+      </div>
+      <div class="pill">QQQ Options Journal · Mar 23–27, 2026</div>
+    </div>
+
+    <div class="hero-card">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker">Performance overview</div>
+          <h1>Professional trade journal dashboard with charts, KPIs, and full trade history.</h1>
+          <p class="lead">
+            This page is built as a clean, shareable static website. Upload these files to GitHub and enable GitHub Pages to publish it publicly as a read-only dashboard.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="stat-label">Net P/L</div>
+              <div id="totalPL" class="stat-value">$0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Win Rate</div>
+              <div id="winRate" class="stat-value">0%</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Total Trades</div>
+              <div id="totalTrades" class="stat-value">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Profit Factor</div>
+              <div id="profitFactor" class="stat-value">0</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Average Return / Trade</div>
+              <div id="avgPLPct" class="stat-value">0%</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Best Trade</div>
+              <div id="bestTrade" class="stat-value" style="font-size:1.05rem;line-height:1.35">—</div>
+            </div>
+            <div class="stat">
+              <div class="stat-label">Worst Trade</div>
+              <div id="worstTrade" class="stat-value" style="font-size:1.05rem;line-height:1.35">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="side-panel">
+          <h3>Performance insights</h3>
+          <ol id="insights" class="insights"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container section">
+    <div class="card-grid">
+      <section class="card">
+        <h2>Equity Curve</h2>
+        <div class="canvas-wrap">
+          <canvas id="equityCurveChart"></canvas>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Daily P/L</h2>
+        <div class="canvas-wrap">
+          <canvas id="dailyPLChart"></canvas>
+        </div>
+      </section>
+      <section class="card">
+        <h2>Wins vs Losses</h2>
+        <div class="canvas-wrap">
+          <canvas id="winLossChart"></canvas>
+        </div>
+      </section>
+      <section class="card">
+        <h2>P/L % by Trade</h2>
+        <div class="canvas-wrap">
+          <canvas id="tradeReturnChart"></canvas>
+        </div>
+      </section>
+    </div>
+
+    <section class="card table-card">
+      <div class="table-header">
+        <div>
+          <h2 style="margin:0 0 6px;">Trade Details</h2>
+          <div class="table-sub">Complete trade log used by the dashboard</div>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Date</th>
+              <th>Trade</th>
+              <th>Size</th>
+              <th>Entry</th>
+              <th>Avg Exit</th>
+              <th>P/L %</th>
+              <th>P/L in $</th>
+            </tr>
+          </thead>
+          <tbody id="tradeTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="footer">
+      Built for GitHub Pages · Edit trade data inside <span class="code">script.js</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
